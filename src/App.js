@@ -9,7 +9,7 @@ function App() {
   
   return (
     <div className="App">
-      <Header></Header>
+      {/* <Header></Header> */}
       {auth ? <BusinessPage></BusinessPage> : <Example></Example>}
     </div>
   );
