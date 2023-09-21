@@ -1,0 +1,5 @@
+.chart-container {
+    width: 100%;
+    max-width: 1000px; /* Set a max width if needed */
+    margin: 0 auto; /* Center the chart horizontally */
+  }
