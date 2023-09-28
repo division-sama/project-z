@@ -10,12 +10,13 @@ import {
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import "./slider.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/autoplay";
 
 import landscape from "./assets/landscape.jpg";
 import portrait from "./assets/portrait.jpg";
@@ -553,7 +554,11 @@ export default function BusinessProfile() {
                       clickable: true,
                     }}
                     navigation={true}
-                    modules={[Pagination, Navigation]}
+                    modules={[Pagination, Navigation, Autoplay]}
+                    autoplay={{
+                      delay: 2500,
+                      disableOnInteraction: false,
+                    }}
                     className="mySwiper"
                   >
                     <SwiperSlide>
