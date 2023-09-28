@@ -4,12 +4,18 @@ module.exports = {
     "./src/components/BusinessPage/BusinessPage.js",
     "./src/components/Products/Products.js",
     "./src/components/AccessControl/AccessControl.js",
-    "src/components/RegisterForm/RegisterForm.js",
-    "src/components/Header/Header.js"
+    "./src/components/RegisterForm/RegisterForm.js",
+    "./src/components/Header/Header.js",
+    "./src/components/BusinessProfile/BusinessProfile.js"
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        '8xl': '96rem',
+      }
+    },
     screens: {
+
       sm: "640px",
       // => @media (min-width: 640px) { ... }
 
