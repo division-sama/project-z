@@ -4,15 +4,15 @@ import Example from './components/AccessControl/AccessControl';
 import Header from './components/Header/Header';
 import BusinessProfile from './components/BusinessProfile/BusinessProfile';
 
-let auth = 0;
+let auth = 1;
 
 function App() {
   
   return (
     <div className="App">
-      <BusinessProfile></BusinessProfile>
+      {/* <BusinessProfile></BusinessProfile> */}
       {/* <Header></Header> */}
-      {/* {auth ? <BusinessPage></BusinessPage> : <Example></Example>} */}
+      {auth ? <BusinessPage></BusinessPage> : <Example></Example>}
     </div>
   );
 }

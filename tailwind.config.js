@@ -6,16 +6,22 @@ module.exports = {
     "./src/components/AccessControl/AccessControl.js",
     "./src/components/RegisterForm/RegisterForm.js",
     "./src/components/Header/Header.js",
-    "./src/components/BusinessProfile/BusinessProfile.js"
+    "./src/components/BusinessProfile/BusinessProfile.js",
+    "./src/components/ManageProducts/ManageProducts.js",
+    "./src/components/ProductChip/ProductChip.js",
   ],
   theme: {
     extend: {
       maxWidth: {
-        '8xl': '96rem',
-      }
+        "8xl": "96rem",
+      },
+      colors: {
+        customProductbg: "#9BA4B5",
+      },
     },
     screens: {
-
+      xsm: "280px",
+      mdsm: "320px",
       sm: "640px",
       // => @media (min-width: 640px) { ... }
 
