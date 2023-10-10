@@ -7,6 +7,7 @@ import CustomizePage from "../CustomizePage/CustomizePage";
 import ReportsPage from "../ReportsPage/ReportsPage";
 import Dashboard from "../Dashboard/Dashboard";
 import ManageProducts from "../ManageProducts/ManageProducts";
+import CustomizePage2 from "../CustomizePage-ColorChange/CustomizePage2";
 
 const user = {
   name: "Tom Cook",
@@ -244,9 +245,10 @@ export default function BusinessPage() {
                   path="/customize-page"
                   exact
                   element={
-                    <CustomizePage
-                      clickhandler={onClickHandler}
-                    ></CustomizePage>
+                    // <CustomizePage
+                    //   clickhandler={onClickHandler}
+                    // ></CustomizePage>
+                    <CustomizePage2 clickhandler={onClickHandler}></CustomizePage2>
                   }
                 ></Route>
                 <Route
