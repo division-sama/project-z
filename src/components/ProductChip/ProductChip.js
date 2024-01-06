@@ -57,7 +57,7 @@ const people = [
 
 export default function ProductChip() {
   return (
-    <ul role="list" className="divide-y divide-gray-100 mx-2">
+    <ul className="divide-y divide-gray-100 mx-2">
       {people.map((person) => (
         <li
           key={person.email}
