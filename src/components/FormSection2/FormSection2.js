@@ -1,7 +1,5 @@
 import React from "react";
 import {
-    PhotoIcon,
-    UserCircleIcon,
     PlusIcon,
     TrashIcon,
   } from "@heroicons/react/24/solid";
@@ -41,6 +39,7 @@ const FormSection2 = (props) => {
               src={props.file["file1"]}
               id="image1"
               className="hidden h-full w-full object-cover"
+              alt="hello"
             />
             <button
               id="button1"
@@ -75,6 +74,7 @@ const FormSection2 = (props) => {
               src={props.file["file2"]}
               id="image2"
               className="hidden h-full w-full"
+              alt="hello"
             />
             <button
               id="button2"
@@ -109,6 +109,7 @@ const FormSection2 = (props) => {
               src={props.file["file3"]}
               id="image3"
               className="hidden h-full w-full"
+              alt="hello"
             />
             <button
               id="button3"
@@ -147,6 +148,7 @@ const FormSection2 = (props) => {
               src={props.file["file4"]}
               id="image4"
               className="hidden h-full w-full"
+              alt="hello"
             />
             <button
               id="button4"
@@ -181,6 +183,7 @@ const FormSection2 = (props) => {
               src={props.file["file5"]}
               id="image5"
               className="hidden h-full w-full"
+              alt="hello"
             />
             <button
               id="button5"
@@ -215,6 +218,7 @@ const FormSection2 = (props) => {
               src={props.file["file6"]}
               id="image6"
               className="hidden h-full w-full"
+              alt="hello"
             />
             <button
               id="button6"
