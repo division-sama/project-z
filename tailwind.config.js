@@ -9,6 +9,15 @@ module.exports = {
     "./src/components/BusinessProfile/BusinessProfile.js",
     "./src/components/ManageProducts/ManageProducts.js",
     "./src/components/ProductChip/ProductChip.js",
+    "./src/components/AddProductForm/AddProductForm.js",
+    "./src/components/SignInForm/SignInForm.js",
+    "./src/components/Modal/Modal.js",
+    "./src/components/DisplayCategory/DisplayCategory.js",
+    "./src/components/DropDownCheckBox/DropdownCheckbox.js",
+    "./src/components/CategoryDropDown/CategoryDropDown.js",
+    "./src/App.js",
+    "./src/components/FormSection2/FormSection2.js",
+    "./src/components/FormSection1/FormSection1.js",
   ],
   theme: {
     extend: {
@@ -18,6 +27,12 @@ module.exports = {
       colors: {
         customProductbg: "#9BA4B5",
       },
+      width: {
+        '150': "48rem"
+      },
+      height: {
+        '71': "16.75rem"
+      }
     },
     screens: {
       xsm: "280px",
