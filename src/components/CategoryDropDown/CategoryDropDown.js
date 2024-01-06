@@ -4,7 +4,6 @@ import { useState } from "react";
 import DisplayCategory from "../DisplayCategory/DisplayCategory";
 import { nanoid } from "nanoid";
 import {
-    MinusIcon,
     PlusIcon,
   } from "@heroicons/react/20/solid";
 
@@ -89,7 +88,7 @@ const CategoryDropDown = () => {
       e.preventDefault();
     }
     setOpen(!open);
-
+    console.log(addCategory)
     console.log(e);
   };
 

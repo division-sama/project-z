@@ -1,6 +1,6 @@
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { ExclamationTriangleIcon, TagIcon } from "@heroicons/react/24/outline";
+import {TagIcon } from "@heroicons/react/24/outline";
 
 export default function Modal(props) {
   const [category, setCategory] = useState('');

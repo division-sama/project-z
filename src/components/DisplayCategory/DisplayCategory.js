@@ -1,16 +1,10 @@
 import React, { useState } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure} from "@headlessui/react";
 import AddSubCategory from "../AddSubCategory/AddSubCategory";
 import {
   ChevronDownIcon,
-  FunnelIcon,
-  MinusIcon,
   PlusIcon,
-  Squares2X2Icon,
   ChevronUpIcon,
-  PencilIcon,
-  EllipsisHorizontalCircleIcon,
-  EllipsisHorizontalIcon,
   CheckIcon,
   XMarkIcon,
   PencilSquareIcon,

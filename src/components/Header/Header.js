@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   ArrowPathIcon,
   Bars3Icon,
@@ -15,8 +15,6 @@ import {
   PhoneIcon,
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
-
-import SignInForm from "../SignInForm/SignInForm";
 
 const products = [
   {

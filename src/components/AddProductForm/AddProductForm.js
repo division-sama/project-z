@@ -2,7 +2,6 @@ import { useState } from "react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import "./App.css";
 import Modal from "../Modal/Modal";
-import DisplayCategory from "../DisplayCategory/DisplayCategory";
 import CategoryDropDown from "../CategoryDropDown/CategoryDropDown";
 import FormSection1 from "../FormSection1/FormSection1";
 import FormSection2 from "../FormSection2/FormSection2";
@@ -105,6 +104,8 @@ export default function AddProductForm() {
     Women: [],
   });
 
+  console.log(Categories,setCategories);
+
   const [FieldValues, setFieldValues] = useState({
     product_title: "",
     product_description: "",
@@ -200,7 +201,7 @@ export default function AddProductForm() {
               <div className="relative isolate overflow-hidden bg-gray-900 px-6 shadow-2xl sm:rounded-3xl sm:px-16 lg:flex lg:gap-x-20 lg:px-24 ">
                 <div class="absolute mx-auto flex justify-center py-4 mt-5 lg:mt-16">
                   <nav aria-label="Progress">
-                    <ol role="list" class="flex items-center">
+                    <ol class="flex items-center">
                       <li class="sm:pr-20 relative pr-8">
                         <div
                           class="absolute inset-0 flex items-center"
@@ -209,7 +210,7 @@ export default function AddProductForm() {
                           <div class="h-0.5 w-full bg-indigo-600"></div>
                         </div>
                         <a
-                          href="#"
+                          href="www.google.com"
                           class="bg-indigo-600 relative flex rounded-full items-center w-8 h-8 justify-center ajr bix"
                         >
                           <CheckIcon
@@ -227,7 +228,7 @@ export default function AddProductForm() {
                           <div class="h-0.5 w-full bg-gray-200"></div>
                         </div>
                         <a
-                          href="#"
+                          href="www.google.com"
                           class="bg-indigo-600 relative flex rounded-full items-center w-8 h-8 justify-center ajr bix"
                         >
                           <CheckIcon
@@ -245,7 +246,7 @@ export default function AddProductForm() {
                           <div class="h-0.5 w-full bg-gray-200"></div>
                         </div>
                         <a
-                          href="#"
+                          href="www.google.com"
                           class=" bg-white border-2 border-gray-300 relative flex rounded-full items-center w-8 h-8 justify-center ajr bix"
                         >
                           <span class="t">Step 1</span>
@@ -259,7 +260,7 @@ export default function AddProductForm() {
                           <div class="h-0.5 w-full bg-gray-200"></div>
                         </div>
                         <a
-                          href="#"
+                          href="www.google.com"
                           class="bg-white border-2 border-gray-300 relative flex rounded-full items-center w-8 h-8 justify-center ajr bix"
                         >
                           <span class="t">Step 1</span>
@@ -267,7 +268,7 @@ export default function AddProductForm() {
                       </li>
                       <li class="relative">
                         <a
-                          href="#"
+                          href="www.google.com"
                           class="bg-white border-2 border-gray-300 relative flex rounded-full items-center w-8 h-8 justify-center ajr bix"
                         >
                           <span class="t">Step 1</span>
