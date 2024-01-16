@@ -18,6 +18,8 @@ module.exports = {
     "./src/App.js",
     "./src/components/FormSection2/FormSection2.js",
     "./src/components/FormSection1/FormSection1.js",
+    "./src/components/FormSection3/FormSection3.js",
+    "./src/components/ProductSummary/ProductSummary.js",
   ],
   theme: {
     extend: {

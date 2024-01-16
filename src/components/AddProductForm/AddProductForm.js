@@ -5,6 +5,8 @@ import Modal from "../Modal/Modal";
 import CategoryDropDown from "../CategoryDropDown/CategoryDropDown";
 import FormSection1 from "../FormSection1/FormSection1";
 import FormSection2 from "../FormSection2/FormSection2";
+import FormSection3 from "../FormSection3/FormSection3";
+import ProductSummary from "../ProductSummary/ProductSummary";
 
 class TreeNode {
   constructor(value) {
@@ -104,7 +106,7 @@ export default function AddProductForm() {
     Women: [],
   });
 
-  console.log(Categories,setCategories);
+  console.log(Categories, setCategories);
 
   const [FieldValues, setFieldValues] = useState({
     product_title: "",
@@ -198,8 +200,8 @@ export default function AddProductForm() {
             {/* First Section - title, desc, photos */}
             {/* This is the card start part */}
             <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-              <div className="relative isolate overflow-hidden bg-gray-900 px-6 shadow-2xl sm:rounded-3xl sm:px-16 lg:flex lg:gap-x-20 lg:px-24 ">
-                <div class="absolute mx-auto flex justify-center py-4 mt-5 lg:mt-16">
+              <div className="relative isolate overflow-hidden bg-gray-900 px-6 shadow-2xl rounded-3xl sm:px-16 lg:flex lg:gap-x-20 lg:px-24 flex flex-col">
+                <div class="absolute mx-auto flex justify-center py-4 mt-5 lg:mt-16 left-0 right-0 lg:left-auto lg:right-auto">
                   <nav aria-label="Progress">
                     <ol class="flex items-center">
                       <li class="sm:pr-20 relative pr-8">
@@ -211,7 +213,7 @@ export default function AddProductForm() {
                         </div>
                         <a
                           href="www.google.com"
-                          class="bg-indigo-600 relative flex rounded-full items-center w-8 h-8 justify-center ajr bix"
+                          class="bg-indigo-600 relative flex rounded-full items-center w-8 h-8 justify-center "
                         >
                           <CheckIcon
                             className=" h-5 w-5 text-gray-100 chid absolute"
@@ -229,7 +231,7 @@ export default function AddProductForm() {
                         </div>
                         <a
                           href="www.google.com"
-                          class="bg-indigo-600 relative flex rounded-full items-center w-8 h-8 justify-center ajr bix"
+                          class="bg-indigo-600 relative flex rounded-full items-center w-8 h-8 justify-center "
                         >
                           <CheckIcon
                             className=" h-5 w-5 text-gray-100 chid absolute"
@@ -247,7 +249,7 @@ export default function AddProductForm() {
                         </div>
                         <a
                           href="www.google.com"
-                          class=" bg-white border-2 border-gray-300 relative flex rounded-full items-center w-8 h-8 justify-center ajr bix"
+                          class=" bg-white border-2 border-gray-300 relative flex rounded-full items-center w-8 h-8 justify-center"
                         >
                           <span class="t">Step 1</span>
                         </a>
@@ -261,7 +263,7 @@ export default function AddProductForm() {
                         </div>
                         <a
                           href="www.google.com"
-                          class="bg-white border-2 border-gray-300 relative flex rounded-full items-center w-8 h-8 justify-center ajr bix"
+                          class="bg-white border-2 border-gray-300 relative flex rounded-full items-center w-8 h-8 justify-center "
                         >
                           <span class="t">Step 1</span>
                         </a>
@@ -269,7 +271,7 @@ export default function AddProductForm() {
                       <li class="relative">
                         <a
                           href="www.google.com"
-                          class="bg-white border-2 border-gray-300 relative flex rounded-full items-center w-8 h-8 justify-center ajr bix"
+                          class="bg-white border-2 border-gray-300 relative flex rounded-full items-center w-8 h-8 justify-center "
                         >
                           <span class="t">Step 1</span>
                         </a>
@@ -277,13 +279,37 @@ export default function AddProductForm() {
                     </ol>
                   </nav>
                 </div>
-                <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 py-20 lg:text-left">
+                <div className="mt-10 text-center lg:mx-0 lg:flex-auto lg:pt-32 pt-20 lg:text-left">
                   <div className="flex flex-col">
-                    <FormSection1
+                    {/* <FormSection1
                       FieldValues={FieldValues}
                       TextChangeHandler={TextChangeHandler}
-                    ></FormSection1>
+                    ></FormSection1> */}
+                    {/* <FormSection2
+                      handleChange={handleChange}
+                      file={file}
+                      onDeletehandler={onDeletehandler}
+                    ></FormSection2> */}
+                    {/* <FormSection3
+                      FieldValues={FieldValues}
+                      TextChangeHandler={TextChangeHandler}
+                    ></FormSection3> */}
+                    <ProductSummary></ProductSummary>
                   </div>
+                </div>
+                <div className="m-10 flex justify-center lg:justify-end">
+                  <button
+                    type="submit"
+                    className="mr-5 self-end rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-600 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="submit"
+                    className="ml-5 self-end rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Next
+                  </button>
                 </div>
               </div>
             </div>

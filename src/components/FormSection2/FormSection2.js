@@ -1,17 +1,14 @@
 import React from "react";
-import {
-    PlusIcon,
-    TrashIcon,
-  } from "@heroicons/react/24/solid";
+import { PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
 
 const FormSection2 = (props) => {
   return (
-    <>
+    <div className="flex flex-col items-center lg:items-start">
       {/* The Product Photos */}
       <div className="col-span-full">
         <label
-          htmlFor="photo"
-          className="block text-sm font-medium leading-6 text-gray-900"
+          htmlFor="username"
+          className="mt-6 text-lg leading-8 text-gray-300"
         >
           Photo
         </label>
@@ -22,7 +19,7 @@ const FormSection2 = (props) => {
             <label
               id="label1"
               htmlFor="file1"
-              className="relative cursor-pointer rounded-md h-full w-full flex justify-center items-center font-semibold text-gray-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+              className="relative cursor-pointer rounded-md bg-white h-full w-full flex justify-center items-center font-semibold text-gray-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
             >
               <PlusIcon className="block h-6 w-6" aria-hidden="true"></PlusIcon>
               <input
@@ -57,7 +54,7 @@ const FormSection2 = (props) => {
             <label
               id="label2"
               htmlFor="file2"
-              className="relative cursor-pointer rounded-md h-full w-full flex justify-center items-center font-semibold text-gray-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+              className="relative cursor-pointer rounded-md bg-white h-full w-full flex justify-center items-center font-semibold text-gray-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
             >
               <PlusIcon className="block h-6 w-6" aria-hidden="true"></PlusIcon>
               <input
@@ -92,7 +89,7 @@ const FormSection2 = (props) => {
             <label
               id="label3"
               htmlFor="file3"
-              className="relative cursor-pointer rounded-md h-full w-full flex justify-center items-center font-semibold text-gray-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+              className="relative cursor-pointer rounded-md bg-white h-full w-full flex justify-center items-center font-semibold text-gray-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
             >
               <PlusIcon className="block h-6 w-6" aria-hidden="true"></PlusIcon>
               <input
@@ -131,7 +128,7 @@ const FormSection2 = (props) => {
             <label
               id="label4"
               htmlFor="file4"
-              className="relative cursor-pointer rounded-md h-full w-full flex justify-center items-center font-semibold text-gray-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+              className="relative cursor-pointer rounded-md bg-white h-full w-full flex justify-center items-center font-semibold text-gray-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
             >
               <PlusIcon className="block h-6 w-6" aria-hidden="true"></PlusIcon>
               <input
@@ -166,7 +163,7 @@ const FormSection2 = (props) => {
             <label
               id="label5"
               htmlFor="file5"
-              className="relative cursor-pointer rounded-md h-full w-full flex justify-center items-center font-semibold text-gray-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+              className="relative cursor-pointer rounded-md bg-white h-full w-full flex justify-center items-center font-semibold text-gray-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
             >
               <PlusIcon className="block h-6 w-6" aria-hidden="true"></PlusIcon>
               <input
@@ -201,7 +198,7 @@ const FormSection2 = (props) => {
             <label
               id="label6"
               htmlFor="file6"
-              className="relative cursor-pointer rounded-md h-full w-full flex justify-center items-center font-semibold text-gray-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+              className="relative cursor-pointer rounded-md bg-white h-full w-full flex justify-center items-center font-semibold text-gray-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
             >
               <PlusIcon className="block h-6 w-6" aria-hidden="true"></PlusIcon>
               <input
@@ -234,7 +231,7 @@ const FormSection2 = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
