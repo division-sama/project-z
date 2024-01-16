@@ -6,16 +6,39 @@ module.exports = {
     "./src/components/AccessControl/AccessControl.js",
     "./src/components/RegisterForm/RegisterForm.js",
     "./src/components/Header/Header.js",
-    "./src/components/BusinessProfile/BusinessProfile.js"
+    "./src/components/BusinessProfile/BusinessProfile.js",
+    "./src/components/ManageProducts/ManageProducts.js",
+    "./src/components/ProductChip/ProductChip.js",
+    "./src/components/AddProductForm/AddProductForm.js",
+    "./src/components/SignInForm/SignInForm.js",
+    "./src/components/Modal/Modal.js",
+    "./src/components/DisplayCategory/DisplayCategory.js",
+    "./src/components/DropDownCheckBox/DropdownCheckbox.js",
+    "./src/components/CategoryDropDown/CategoryDropDown.js",
+    "./src/App.js",
+    "./src/components/FormSection2/FormSection2.js",
+    "./src/components/FormSection1/FormSection1.js",
+    "./src/components/FormSection3/FormSection3.js",
+    "./src/components/ProductSummary/ProductSummary.js",
   ],
   theme: {
     extend: {
       maxWidth: {
-        '8xl': '96rem',
+        "8xl": "96rem",
+      },
+      colors: {
+        customProductbg: "#9BA4B5",
+      },
+      width: {
+        '150': "48rem"
+      },
+      height: {
+        '71': "16.75rem"
       }
     },
     screens: {
-
+      xsm: "280px",
+      mdsm: "320px",
       sm: "640px",
       // => @media (min-width: 640px) { ... }
 

@@ -1,0 +1,67 @@
+
+@media(hover:hover) {
+
+    button.nigger .chid {
+        opacity: 0;
+        margin-left: calc(50% - (24px/ 2));
+        transition: 0.3s ease-in;
+        top: 50%;
+    }
+
+    button.nigger:hover .chid {
+        opacity: 1;
+    }
+
+    button.nigger:before {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 0%;
+        width: 100%;
+        bottom: 0;
+        transition: height 0.3s ease-out;
+        background: linear-gradient(to bottom, transparent 0%, rgb(78, 78, 78) 100%);
+    }
+
+    button.nigger:hover:before {
+        height: 60%;
+    }
+}
+
+
+@media(hover:none) {
+
+    button.nigger .chid {
+        opacity: 1;
+        margin-left: calc(50% - (24px/ 2));
+    }
+
+    button.nigger:before {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        bottom: 0;
+        transition: height 0.3s ease-out;
+        background: linear-gradient(to bottom, transparent 0%, rgb(78, 78, 78) 100%);
+    }
+}
+
+svg{
+    pointer-events: none;
+}
+
+.t{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+

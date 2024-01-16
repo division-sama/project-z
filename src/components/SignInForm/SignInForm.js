@@ -1,8 +1,44 @@
-import React, { useEffect } from "react";
-import RegisterForm from "../RegisterForm/RegisterForm";
-import Header from "../Header/Header";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const SignInForm = () => {
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    const formData = new URLSearchParams();
+    formData.append('Username', username);
+    formData.append('Password', password);
+
+    try {
+      const response = await fetch('http://localhost:8000/oauth/token', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        // Access the access token from the response
+        const token = data.accessToken;
+        console.log(token);
+        localStorage.setItem('accessToken', token);
+
+        // You can now use the access token for further requests or store it as needed.
+      } else {
+        // Handle login error
+        console.error('Login failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+
   useEffect(() => {
     let htmlTag = document.getElementsByTagName("html");
     htmlTag[0].classList.add("bg-white");
@@ -11,10 +47,10 @@ const SignInForm = () => {
   
   return (
     <>
-    <Header></Header>
+    <div className="flex min-h-full flex-1 flex-row justify-center ml-10 mr-10">
       <div
         id="SignIn"
-        className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
+        className="w-96"
       >
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
@@ -28,7 +64,7 @@ const SignInForm = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={handleLogin}>
             <div>
               <div>
                 <label
@@ -42,9 +78,8 @@ const SignInForm = () => {
                     placeholder="Email address"
                     id="email"
                     name="email"
-                    type="email"
-                    autoComplete="email"
                     required
+                    onChange={(e) => setUsername(e.target.value)}
                     className="block w-full rounded-t-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -66,6 +101,7 @@ const SignInForm = () => {
                     type="password"
                     autoComplete="current-password"
                     required
+                    onChange={(e) => setPassword(e.target.value)}
                     className="block w-full rounded-b-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -107,13 +143,15 @@ const SignInForm = () => {
           </form>
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{" "}
-            <button
+            <Link
+              to="/register"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             >
               Register Yourself
-            </button>
+            </Link>
           </p>
         </div>
+      </div>
       </div>
     </>
   );
