@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  BellIcon,
+  XMarkIcon,
+  ChevronDownIcon,
+} from "@heroicons/react/24/outline";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import CustomizePage from "../CustomizePage/CustomizePage";
 import ReportsPage from "../ReportsPage/ReportsPage";
@@ -27,7 +32,6 @@ function classNames(...classes) {
 export default function BusinessPage() {
   const [navigation, setNavigation] = useState([
     { name: "Dashboard", href: "/", current: true },
-    { name: "Customise Page", href: "customize-page", current: false },
     { name: "Manage Products", href: "manage-products", current: false },
     { name: "Reports", href: "reports", current: false },
     { name: "Customer Feedback", href: "#", current: false },
@@ -41,11 +45,11 @@ export default function BusinessPage() {
     setNavigation(updatedNavigation);
   };
 
-  useEffect(()=>{
-    let htmlTag = document.getElementsByTagName('html');
-    htmlTag[0].classList.remove('bg-white');
-    htmlTag[0].classList.add('bg-gray-100');
-  },[])
+  useEffect(() => {
+    let htmlTag = document.getElementsByTagName("html");
+    htmlTag[0].classList.remove("bg-white");
+    htmlTag[0].classList.add("bg-gray-100");
+  }, []);
 
   return (
     <>
@@ -57,7 +61,6 @@ export default function BusinessPage() {
         <body class="h-full">
         ```
       */}
-      <Router>
         <div className="min-h-full">
           <Disclosure as="nav" className="bg-gray-800">
             {({ open }) => (
@@ -89,6 +92,44 @@ export default function BusinessPage() {
                               {item.name}
                             </Link>
                           ))}
+                          <Menu as="div" className="relative ml-3">
+                            <div>
+                              <Menu.Button className={"inline-flex w-full text-center justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold text-gray-300 shadow-sm hover:bg-gray-700"}>
+                                Options
+                                <ChevronDownIcon
+                                  className="-mr-1 mt-1 h-4 w-4 text-gray-300 "
+                                  aria-hidden="true"
+                                />
+                              </Menu.Button>
+                            </div>
+                            <Transition
+                              as={Fragment}
+                              enter="transition ease-out duration-100"
+                              enterFrom="transform opacity-0 scale-95"
+                              enterTo="transform opacity-100 scale-100"
+                              leave="transition ease-in duration-75"
+                              leaveFrom="transform opacity-100 scale-100"
+                              leaveTo="transform opacity-0 scale-95"
+                            >
+                              <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                {userNavigation.map((item) => (
+                                  <Menu.Item key={item.name}>
+                                    {({ active }) => (
+                                      <a
+                                        href={item.href}
+                                        className={classNames(
+                                          active ? "bg-gray-100" : "",
+                                          "block px-4 py-2 text-sm text-gray-700"
+                                        )}
+                                      >
+                                        {item.name}
+                                      </a>
+                                    )}
+                                  </Menu.Item>
+                                ))}
+                              </Menu.Items>
+                            </Transition>
+                          </Menu>
                         </div>
                       </div>
                     </div>
@@ -233,10 +274,11 @@ export default function BusinessPage() {
           <header className="bg-white shadow">
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
               <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-              {navigation.map((item) => item.current ? item.name : null)}
+                {navigation.map((item) => (item.current ? item.name : null))}
               </h1>
             </div>
           </header>
+
           <main>
             <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
               <Routes>
@@ -276,7 +318,6 @@ export default function BusinessPage() {
             </div>
           </main>
         </div>
-      </Router>
     </>
   );
 }
