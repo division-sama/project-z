@@ -110,6 +110,7 @@ const CategoryDropDown = () => {
 
     const newSub = new TreeNode(value);
     nodetoedit.addChild(newSub);
+    console.log(root.toJSON())
   }
 
   return (

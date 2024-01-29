@@ -1,8 +1,8 @@
 import { PaperClipIcon } from '@heroicons/react/20/solid'
 
-export default function ProductSummary() {
+export default function ProductSummary(props) {
   return (
-    <div className='bg-white p-10 rounded-sm'>
+    <div className={ `${props.visibility ? 'bg-white p-10 rounded-sm' : 'hidden'}`}>
       <div className="px-4 sm:px-0">
         <h3 className="text-base font-semibold leading-7 text-gray-900">Product Summary</h3>
         <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Please review the details of the product.</p>
