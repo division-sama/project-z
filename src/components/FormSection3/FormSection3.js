@@ -1,9 +1,8 @@
 import React from "react";
-import CategoryDropDown from "../CategoryDropDown/CategoryDropDown";
 
-const FormSection1 = (props) => {
+const FormSection3 = (props) => {
   return (
-    <>
+    <div className={ `${props.visibility ? 'block' : 'hidden'}`}>
       <div className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-6">
         {/* The Product title */}
         <div className="sm:col-span-4">
@@ -17,10 +16,10 @@ const FormSection1 = (props) => {
             <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 lg:max-w-md">
               <input
                 type="number"
-                name="product_title"
-                id="product-title"
+                name="product_quantity"
+                id="product-quantity"
                 placeholder="Quantity"
-                value={props.FieldValues.product_title}
+                value={props.FieldValues.product_quantity}
                 onChange={props.TextChangeHandler}
                 autoComplete="given-name"
                 className="block mdsm:max-w-xs rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -38,9 +37,11 @@ const FormSection1 = (props) => {
           </label>
           <div className="mt-2 flex lg:justify-start justify-center">
             <select
-              id="country"
-              name="country"
+              id="product_currency"
+              name="product_currency"
               autoComplete="country-name"
+              defaultValue={props.FieldValues.product_currency}
+              onChange={props.TextChangeHandler}
               className="block rounded-md mr-5 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
             >
               <option>--</option>
@@ -539,10 +540,10 @@ const FormSection1 = (props) => {
             </select>
             <input
               type="number"
-              name="product_title"
-              id="product-title"
+              name="product_price"
+              id="product-price"
               placeholder="Price"
-              value={props.FieldValues.product_title}
+              value={props.FieldValues.product_price}
               onChange={props.TextChangeHandler}
               autoComplete="given-name"
               className="block mdsm:max-w-xs rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -550,8 +551,8 @@ const FormSection1 = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default FormSection1;
+export default FormSection3;

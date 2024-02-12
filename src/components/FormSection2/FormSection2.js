@@ -3,7 +3,7 @@ import { PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
 
 const FormSection2 = (props) => {
   return (
-    <div className="flex flex-col items-center lg:items-start">
+    <div className={ `${props.visibility ? 'flex flex-col items-center lg:items-start' : 'hidden'}`}>
       {/* The Product Photos */}
       <div className="col-span-full">
         <label
@@ -25,6 +25,7 @@ const FormSection2 = (props) => {
               <input
                 id="file1"
                 data="1"
+                key={1}
                 name="file-upload"
                 type="file"
                 className="sr-only"
@@ -33,7 +34,7 @@ const FormSection2 = (props) => {
             </label>
             {/* This world doesnt makes me happy or sad cause I am happy by default by remembering Radhe Shyaam  */}
             <img
-              src={props.file["file1"]}
+              src={props.file["file1"][1]}
               id="image1"
               className="hidden h-full w-full object-cover"
               alt="hello"
@@ -68,7 +69,7 @@ const FormSection2 = (props) => {
             </label>
             {/* This world doesnt makes me happy or sad cause I am happy by default by remembering Radhe Shyaam  */}
             <img
-              src={props.file["file2"]}
+              src={props.file["file2"][1]}
               id="image2"
               className="hidden h-full w-full"
               alt="hello"
@@ -103,7 +104,7 @@ const FormSection2 = (props) => {
             </label>
             {/* This world doesnt makes me happy or sad cause I am happy by default by remembering Radhe Shyaam  */}
             <img
-              src={props.file["file3"]}
+              src={props.file["file3"][1]}
               id="image3"
               className="hidden h-full w-full"
               alt="hello"
@@ -142,7 +143,7 @@ const FormSection2 = (props) => {
             </label>
             {/* This world doesnt makes me happy or sad cause I am happy by default by remembering Radhe Shyaam  */}
             <img
-              src={props.file["file4"]}
+              src={props.file["file4"][1]}
               id="image4"
               className="hidden h-full w-full"
               alt="hello"
@@ -177,7 +178,7 @@ const FormSection2 = (props) => {
             </label>
             {/* This world doesnt makes me happy or sad cause I am happy by default by remembering Radhe Shyaam  */}
             <img
-              src={props.file["file5"]}
+              src={props.file["file5"][1]}
               id="image5"
               className="hidden h-full w-full"
               alt="hello"
@@ -212,7 +213,7 @@ const FormSection2 = (props) => {
             </label>
             {/* This world doesnt makes me happy or sad cause I am happy by default by remembering Radhe Shyaam  */}
             <img
-              src={props.file["file6"]}
+              src={props.file["file6"][1]}
               id="image6"
               className="hidden h-full w-full"
               alt="hello"
