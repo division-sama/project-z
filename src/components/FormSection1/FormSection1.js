@@ -1,10 +1,12 @@
 import React from "react";
 import CategoryDropDown from "../CategoryDropDown/CategoryDropDown";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const FormSection1 = (props) => {
   return (
-    <div className={ `${props.visibility ? 'block' : 'hidden'}`}>
-      <div className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-6" >
+    <div className={`${props.visibility ? "block" : "hidden"}`}>
+      <div className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-6">
         {/* The Product title */}
         <div className="sm:col-span-4">
           <label
@@ -37,13 +39,19 @@ const FormSection1 = (props) => {
             Product Description
           </label>
           <div className="mt-2">
-            <textarea
+            <CKEditor
               id="product_description"
               name="product_description"
-              rows={3}
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              value={props.FieldValues.product_description}
-              onChange={props.TextChangeHandler}
+              editor={ClassicEditor}
+              data={props.FieldValues.product_description}
+              onChange={(event, editor) => {
+                const data = editor.getData();
+                const ckeditor = {
+                  name: "product_description",
+                  data: data,
+                };
+                props.TextChangeHandler(null,ckeditor);
+              }}
             />
           </div>
           <p className="mt-3 text-sm leading-6 text-gray-400">

@@ -12,12 +12,12 @@ export default function AddProductForm() {
   const [ModalState, setModalState] = useState(false);
 
   const [file, setFile] = useState({
-    file1: [null,''],
-    file2: [null,''],
-    file3: [null,''],
-    file4: [null,''],
-    file5: [null,''],
-    file6: [null,''],
+    file1: [null, ""],
+    file2: [null, ""],
+    file3: [null, ""],
+    file4: [null, ""],
+    file5: [null, ""],
+    file6: [null, ""],
   });
 
   const [FieldValues, setFieldValues] = useState({
@@ -72,20 +72,28 @@ export default function AddProductForm() {
     let id = e.target.getAttribute("data");
     console.log(id);
 
-    newFile["file" + id] = [null,''];
+    newFile["file" + id] = [null, ""];
     console.log(newFile);
 
     setFile(newFile);
     classToggler(id);
   }
 
-  const TextChangeHandler = (e) => {
-    const val = e.target.value;
-    const key = e.target.getAttribute("name");
-    let newVals = { ...FieldValues };
+  const TextChangeHandler = (e, ckeditor) => {
+
+    let val, key, newVals;
+
+    if (ckeditor) {
+      val = ckeditor.data;
+      key = ckeditor.name;
+    } else {
+      val = e.target.value;
+      key = e.target.getAttribute("name");
+      console.log(val);
+    }
+
+    newVals = { ...FieldValues };
     newVals[key] = val;
-
-
     setFieldValues(newVals);
   };
 
@@ -113,7 +121,6 @@ export default function AddProductForm() {
     }
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -121,12 +128,12 @@ export default function AddProductForm() {
 
     for (const [key, value] of Object.entries(FieldValues)) {
       formData.append(key, value);
-      console.log(key,value)
+      console.log(key, value);
     }
 
     for (const [key, value] of Object.entries(file)) {
       formData.append(key, value);
-      console.log(key,value)
+      console.log(key, value);
     }
 
     try {
@@ -266,6 +273,10 @@ export default function AddProductForm() {
                     ></FormSection3>
                     <ProductSummary
                       visibility={FormSectionState[3]}
+                      summary = {FieldValues}
+                      file={file}
+                      onDeletehandler={onDeletehandler}
+                      handleChange={handleChange}
                     ></ProductSummary>
                   </div>
                 </div>
