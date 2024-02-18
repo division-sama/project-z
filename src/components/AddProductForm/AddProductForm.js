@@ -132,8 +132,8 @@ export default function AddProductForm() {
     }
 
     for (const [key, value] of Object.entries(file)) {
-      formData.append(key, value);
-      console.log(key, value);
+      formData.append(key, value[0]);
+      console.log(key,value)
     }
 
     try {
