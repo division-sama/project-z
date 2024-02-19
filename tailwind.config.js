@@ -20,6 +20,7 @@ module.exports = {
     "./src/components/FormSection1/FormSection1.js",
     "./src/components/FormSection3/FormSection3.js",
     "./src/components/ProductSummary/ProductSummary.js",
+    "./src/components/ProgressBar/ProgressBar.js"
   ],
   theme: {
     extend: {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CheckIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import "./App.css";
 import Modal from "../Modal/Modal";
 import CategoryDropDown from "../CategoryDropDown/CategoryDropDown";
@@ -7,11 +7,13 @@ import FormSection1 from "../FormSection1/FormSection1";
 import FormSection2 from "../FormSection2/FormSection2";
 import FormSection3 from "../FormSection3/FormSection3";
 import ProductSummary from "../ProductSummary/ProductSummary";
+import Progressbar from "../ProgressBar/ProgressBar";
 
 export default function AddProductForm() {
   const [ModalState, setModalState] = useState(false);
 
   const [file, setFile] = useState({
+    count: 0,
     file1: [null, ""],
     file2: [null, ""],
     file3: [null, ""],
@@ -29,6 +31,17 @@ export default function AddProductForm() {
   });
 
   const [FormSectionState, setFormSectionState] = useState([1, 0, 0, 0]);
+
+  const [FormSectionFilledState, setFormSectionFilledstate] = useState([0, 0, 0, 0])
+
+  const [ErrorState, setErrorState] = useState(false);
+
+  const [stepState, setStepState] = useState([
+    { status: "editing" },
+    { status: "pending" },
+    { status: "pending" },
+    { status: "pending" }
+  ]);
 
   const ModalStateChanger = (e) => {
     if (e) {
@@ -61,6 +74,7 @@ export default function AddProductForm() {
     console.log(e.target.files[0]);
     console.log(newFile);
 
+    newFile["count"]++;
     setFile(newFile);
     classToggler(id);
   }
@@ -74,7 +88,7 @@ export default function AddProductForm() {
 
     newFile["file" + id] = [null, ""];
     console.log(newFile);
-
+    newFile["count"]--;
     setFile(newFile);
     classToggler(id);
   }
@@ -106,20 +120,56 @@ export default function AddProductForm() {
     let currIndex = FormSectionState.indexOf(1);
     let newState = [...FormSectionState];
     let arraySize = FormSectionState.length;
-    if (e.target.getAttribute("name") == "next") {
+    let newFilledState = FormSectionFilledState;
+    let newProgressState = stepState;
+
+
+    for (let i = 0; i < newFilledState.length; i++) {
+      FieldValues["product_title"].length > 0 && FieldValues["product_description"].length > 10 ? newFilledState[0] = 1 : newFilledState[0] = 0;
+      file["count"] ? newFilledState[1] = 1 : newFilledState[1] = 0;
+      FieldValues["product_price"].length > 0 && FieldValues["product_quantity"].length > 0 && FieldValues["product_currency"].length > 0 ? newFilledState[2] = 1 : newFilledState[2] = 0;
+    }
+
+    setFormSectionFilledstate(newFilledState);
+
+    if (e.target.getAttribute("name") == "next" && FormSectionFilledState[currIndex] != 0) {
       if (arraySize > currIndex + 1) {
         newState[currIndex] = 0;
         newState[currIndex + 1] = 1;
       }
+      setErrorState(false);
       setFormSectionState(newState);
-    } else {
+    } else if (e.target.getAttribute("name") == "back") {
       if (0 <= currIndex - 1) {
         newState[currIndex] = 0;
         newState[currIndex - 1] = 1;
       }
       setFormSectionState(newState);
+    } else {
+      setErrorState(true);
     }
+
+    for(let j = 0; j<newState.length; j++) {
+      if(newState[j] == 1) {
+        newProgressState[j]["status"] = "editing";
+      }else {
+        if(newFilledState[j] == 1 && newState.indexOf(1) > j) {
+          newProgressState[j]["status"] = "done";
+        }else {
+          newProgressState[j]["status"] = "pending";
+        }
+      }
+    }
+    
+    setStepState(newProgressState);
+
+    console.log(stepState);
   };
+
+  const ErrorPopUpHandler = (e) => {
+    e.preventDefault();
+    setErrorState(false);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -133,7 +183,7 @@ export default function AddProductForm() {
 
     for (const [key, value] of Object.entries(file)) {
       formData.append(key, value[0]);
-      console.log(key,value)
+      console.log(key, value)
     }
 
     try {
@@ -175,85 +225,25 @@ export default function AddProductForm() {
             {/* This is the card start part */}
             <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
               <div className="relative isolate overflow-hidden bg-gray-900 px-6 shadow-2xl rounded-3xl sm:px-16 lg:flex lg:gap-x-20 lg:px-24 flex flex-col">
-                <div className="absolute mx-auto flex justify-center py-4 mt-5 lg:mt-16 left-0 right-0 lg:left-auto lg:right-auto">
-                  <nav aria-label="Progress">
-                    <ol className="flex items-center">
-                      <li className="sm:pr-20 relative pr-8">
-                        <div
-                          className="absolute inset-0 flex items-center"
-                          aria-hidden="true"
-                        >
-                          <div className="h-0.5 w-full bg-indigo-600"></div>
-                        </div>
-                        <a
-                          href="www.google.com"
-                          className="bg-indigo-600 relative flex rounded-full items-center w-8 h-8 justify-center "
-                        >
-                          <CheckIcon
-                            className=" h-5 w-5 text-gray-100 chid absolute"
-                            aria-hidden="true"
-                          ></CheckIcon>
-                          <span className="t">Step 1</span>
-                        </a>
-                      </li>
-                      <li className="sm:pr-20 relative pr-8">
-                        <div
-                          className="absolute inset-0 flex items-center"
-                          aria-hidden="true"
-                        >
-                          <div className="h-0.5 w-full bg-gray-200"></div>
-                        </div>
-                        <a
-                          href="www.google.com"
-                          className="bg-indigo-600 relative flex rounded-full items-center w-8 h-8 justify-center "
-                        >
-                          <CheckIcon
-                            className=" h-5 w-5 text-gray-100 chid absolute"
-                            aria-hidden="true"
-                          ></CheckIcon>
-                          <span className="t">Step 1</span>
-                        </a>
-                      </li>
-                      <li className="sm:pr-20 relative pr-8">
-                        <div
-                          className="absolute inset-0 flex items-center"
-                          aria-hidden="true"
-                        >
-                          <div className="h-0.5 w-full bg-gray-200"></div>
-                        </div>
-                        <a
-                          href="www.google.com"
-                          className=" bg-white border-2 border-gray-300 relative flex rounded-full items-center w-8 h-8 justify-center"
-                        >
-                          <span className="t">Step 1</span>
-                        </a>
-                      </li>
-                      <li className="sm:pr-20 relative pr-8">
-                        <div
-                          className="absolute inset-0 flex items-center"
-                          aria-hidden="true"
-                        >
-                          <div className="h-0.5 w-full bg-gray-200"></div>
-                        </div>
-                        <a
-                          href="www.google.com"
-                          className="bg-white border-2 border-gray-300 relative flex rounded-full items-center w-8 h-8 justify-center "
-                        >
-                          <span className="t">Step 1</span>
-                        </a>
-                      </li>
-                      <li className="relative">
-                        <a
-                          href="www.google.com"
-                          className="bg-white border-2 border-gray-300 relative flex rounded-full items-center w-8 h-8 justify-center "
-                        >
-                          <span className="t">Step 1</span>
-                        </a>
-                      </li>
-                    </ol>
-                  </nav>
-                </div>
+                {/* This is where the progress bar is */}
+                <Progressbar stepState={stepState}></Progressbar>
+                {/* This is where the progress bar ends */}
                 <div className="mt-10 text-center lg:mx-0 lg:flex-auto lg:pt-32 pt-20 lg:text-left">
+                  {ErrorState ? <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-5" role="alert">
+                    <strong class="font-bold">Empty Fields!</strong>
+                    <span class="block sm:inline">  Please fill the required fields</span>
+
+                    <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                      <button onClick={ErrorPopUpHandler}>
+                        <XMarkIcon
+                          className=" fill-current h-6 w-6 text-red-500"
+                          aria-hidden="true"
+                        >
+                          Close
+                        </XMarkIcon>
+                      </button>
+                    </span>
+                  </div> : <></>}
                   <div className="flex flex-col">
                     <FormSection1
                       visibility={FormSectionState[0]}
@@ -273,7 +263,7 @@ export default function AddProductForm() {
                     ></FormSection3>
                     <ProductSummary
                       visibility={FormSectionState[3]}
-                      summary = {FieldValues}
+                      summary={FieldValues}
                       file={file}
                       onDeletehandler={onDeletehandler}
                       handleChange={handleChange}
@@ -306,6 +296,7 @@ export default function AddProductForm() {
               Submit
             </button>
           </div>
+
         </div>
       </form>
     </>
